@@ -60,12 +60,12 @@ class Calc():
       self.total *= self.current
     elif self.op == 'div':
       self.total /= self.current
-    elif self.op == 'sqrt':
+    elif self.op == 'power':
       self.total = (self.total ** self.current)
     
     self.input_value  = True
     self.check_sum = False
-    
+
     if isinstance(self.total, int):
       self.total = (int(self.total))
     elif self.total.is_integer():
@@ -73,7 +73,6 @@ class Calc():
     else:
       self.total = (float(self.total))
     self.display(self.total)
-    self.input_value = True
 
   def operation(self, op):
     self.current = float(self.current)
@@ -125,7 +124,7 @@ for r in range(2,5):
     i += 1
 
 # Defining other keys that use lambda
-keys_dictWith = {'sqrt': '√', 'div': chr(247), 'mult': chr(215), 'add': '+', 'sub': '-'}
+keys_dictWith = {'power': 'x'+chr(178), 'div': chr(247), 'mult': chr(215), 'add': '+', 'sub': '-'}
 btn_lambda = []
 j = 0
 for k in keys_dictWith:
@@ -163,73 +162,9 @@ btn_lambda[4].grid(row=4, column=3, pady=1)
 # div
 btn_lambda[1].grid(row=5, column=2, pady=1)
 
-btn_0.grid(row=5, column=0, pady=1)
-btn_dot.grid(row=5, column=1, pady=1)
+btn_dot.grid(row=5, column=0, pady=1)
+btn_0.grid(row=5, column=1, pady=1)
 btn_equal.grid(row=5, column=3, pady=1)
 
 calc.mainloop()
 
-# def btn_click(number):
-#   global current
-#   current = entry_field.get()
-#   entry_field.delete(0, END)
-#   entry_field.insert(0, str(current) + str(number))  
-
-# def btn_clear():
-#   entry_field.delete(0, END)
-
-# def btn_backspace():
-#   backspace_current = entry_field.get()
-#   entry_field.delete(0, END)
-#   entry_field.insert(0, str(backspace_current[:-1]))
-
-# def btn_pminus():
-#   pminus_current = entry_field.get()
-#   if (pminus_current[0] != '-' and pminus_current[0] != '0'):
-#     entry_field.delete(0, END)
-#     entry_field.insert(0, str('-') + str(pminus_current[:]))
-#   elif pminus_current[0] == '-':
-#     entry_field.delete(0, END)
-#     entry_field.insert(0, str(pminus_current[1:]))
-
-# def btn_add():
-#   global num_1
-#   global calculation
-#   num_1 = float(entry_field.get())
-#   calculation = 'add'
-#   entry_field.delete(0, END)
-#   # entry_field.insert(0, str(num_1) + str(' +'))
-
-# def btn_sub():
-#   global num_1
-#   global calculation
-#   num_1 = float(entry_field.get())
-#   calculation = 'sub'
-#   entry_field.delete(0, END)
-
-# def btn_mult():
-#   global num_1
-#   global calculation
-#   num_1 = float(entry_field.get())
-#   calculation = 'mult'
-#   entry_field.delete(0, END)
-
-# def btn_div():
-#   global num_1
-#   global calculation
-#   num_1 = float(entry_field.get())
-#   calculation = 'div'
-#   entry_field.delete(0, END)
-
-# def btn_result():
-#   num_2 = float(entry_field.get())
-#   entry_field.delete(0, END)
-
-#   if calculation == 'add':
-#     entry_field.insert(0, float(num_1) + float(num_2))
-#   elif calculation == 'sub':
-#     entry_field.insert(0, float(num_1) - float(num_2))
-#   elif calculation == 'mult':
-#     entry_field.insert(0, float(num_1) * float(num_2))
-#   elif calculation == 'div':
-#     entry_field.insert(0, num_1 / num_2)

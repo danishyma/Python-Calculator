@@ -51,7 +51,7 @@ class Calc():
     entry_field.insert(0, value)
 
   def valid_func(self):
-    '''Makes the operations and return a value formated in interg or float'''
+    '''Makes the operations and return a value formated in int or float'''
     if self.op == 'add':
       self.total += self.current
     elif self.op == 'sub': 
@@ -62,7 +62,7 @@ class Calc():
       self.total /= self.current
     elif self.op == 'power':
       self.total = (self.total ** self.current)
-    
+      
     self.input_value  = True
     self.check_sum = False
 
@@ -100,15 +100,23 @@ class Calc():
     self.input_value = True
 
   def bkspace(self):
-    '''Get the current number as a list and copy it without the last number'''
     if isinstance(self.current, float) or isinstance(self.current, int):
-      self.clear_entry()
+      # self.clear_entry()
       self.display(0)
     elif self.current == '':
       self.display(0)
-    else:
+    elif len(str(self.current)) > 1:
       self.current = self.current[:-1]
       self.display(self.current)
+    elif len(str(self.current)) == 1:
+      self.clear_entry()
+      self.display(0)
+  
+  # def plusmn(self):
+  #   if str(self.current).isdigit():
+  #     self.current = str('-') + str(self.current)
+  #     self.display(self.current)
+      
 
 added_value = Calc() 
 

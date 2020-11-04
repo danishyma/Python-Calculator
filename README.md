@@ -1,6 +1,8 @@
 # Python-Calculator
 
-A simple calculator. Features:
+A simple calculator using tkinter. 
+
+Features:
   - Addition
   - Multiplication
   - Subtraction
